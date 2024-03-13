@@ -11,6 +11,7 @@ type Mrdata = {
   total: string
   RaceTable?: RaceTable
   DriverTable?: DriverTable
+  ConstructorTable?: ConstructorTable
 }
 
 type RaceTable = {
@@ -125,4 +126,15 @@ type SprintResult = {
   status: string
   Time?: Time
   FastestLap?: FastestLap
+}
+
+type ConstructorTable = {
+  constructorId: string
+  Constructors: Constructor[]
+}
+
+type DriverPoints = Driver & {
+  totalPoints: number
+  constructorId: string
+  countPositions: { [key: string]: number }
 }
