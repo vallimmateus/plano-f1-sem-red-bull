@@ -8,13 +8,14 @@ datasource db {
 }
 
 model Points {
-  id          String  @id @default(uuid())
-  driverId    String
-  points      String
-  description String
-  round       String
-  season      String
-  position    String?
+  id            String  @id @default(uuid())
+  constructorId String
+  driverId      String
+  points        String
+  description   String
+  round         String
+  season        String
+  position      String?
 
   @@unique([position, round, season])
 }
