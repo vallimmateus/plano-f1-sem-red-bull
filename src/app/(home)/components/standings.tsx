@@ -26,14 +26,14 @@ export function Standings() {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-bold">Season Classification</h1>
-            <button onClick={updateSeasonPoints}>Update</button>
+            <h1 className="text-4xl font-bold">Classificação</h1>
+            {/* <button onClick={updateSeasonPoints}>Update</button> */}
             <table className="w-full">
                 <thead>
                     <tr>
-                        <th>Position</th>
-                        <th>Driver</th>
-                        <th>Points</th>
+                        <th>Posição</th>
+                        <th>Piloto</th>
+                        <th>Pontos</th>
                     </tr>
                 </thead>
                 <tbody>
