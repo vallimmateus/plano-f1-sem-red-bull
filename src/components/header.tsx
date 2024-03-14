@@ -21,9 +21,9 @@ function ButtonHeader({className, ...props}: ButtonProps & {href: Url}) {
 
 export function Header() {
     return (
-        <header className="bg-formula-one-red text-white w-full h-24 flex items-center justify-center">
+        <header className="bg-formula-one-red text-white w-full min-h-24 flex items-end justify-center">
             <div className="w-full flex max-w-5xl flex-col justify-end h-full gap-2">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center max-md:flex-col max-md:justify-center">
                     <h1 className="px-4 font-formula-one font-black text-2xl">Plano F1 sem <span className="blur-[2px]">Red Bull</span></h1>
                     <p className="text-white/85 text-sm">A Fórmula 1 com F de Felicidade!</p>
                     {/* <div className="flex justify-between px-4">
