@@ -1,16 +1,23 @@
+'use client'
 import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 import { Standings } from "./components/standings";
 
-async function getStandings() {
-  const baseURL = process.env.NODE_ENV === 'production' ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
-  await axios.post(`${baseURL}/api/season-points`)
-  const response = await axios.get(`${baseURL}/api/season-points`)
-  const data = response.data.data
-  return data as DriverPoints[]
-}
+export default function Page() {
+  const [standings, setStandings] = useState<DriverPoints[]>([])
+  
+  const getStandings = useCallback(async () => {
+    await axios.post("/api/season-points")
+    await axios.get("/api/season-points")
+      .then((res) => {
+        const data: DriverPoints[] = res.data.data
+        setStandings(data)
+      }).catch((err) => console.error(err))
+  }, [])
 
-export default async function Home() {
-  const standings = await getStandings()
+  useEffect(() => {
+    getStandings()
+  }, [getStandings])
 
   return (
     <main className="w-full h-full bg-[radial-gradient(#514e61,_#14141c)]">

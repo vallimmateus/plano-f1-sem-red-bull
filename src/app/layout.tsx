@@ -46,8 +46,8 @@ export default function RootLayout({
       <body className={cn(inter.className, formulaOne.className)}>
         <Header />
         {children}
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }

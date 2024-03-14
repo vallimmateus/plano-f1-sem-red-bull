@@ -23,7 +23,14 @@ export function Header() {
     return (
         <header className="bg-formula-one-red text-white w-full h-24 flex items-center justify-center">
             <div className="w-full flex max-w-5xl flex-col justify-end h-full gap-2">
-                <h1 className="px-4 font-formula-one font-black text-2xl">Plano F1 sem <span className="blur-[2px]">Red Bull</span></h1>
+                <div className="flex justify-between items-center">
+                    <h1 className="px-4 font-formula-one font-black text-2xl">Plano F1 sem <span className="blur-[2px]">Red Bull</span></h1>
+                    <p className="text-white/85 text-sm">A Fórmula 1 com F de Felicidade!</p>
+                    {/* <div className="flex justify-between px-4">
+                        <p>Temporada 2021</p>
+                        <p>Última atualização: 19/09/2021</p>
+                    </div> */}
+                </div>
                 <div className="w-full flex">
                     <ButtonHeader href="/">Pilotos</ButtonHeader>
                     <ButtonHeader disabled href="/constructors">Construtoras</ButtonHeader>

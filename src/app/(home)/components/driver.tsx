@@ -9,8 +9,7 @@ export function Driver({ givenName, familyName, totalPoints, position, construct
     const [constructor, setConstructor] = useState<string | null>(null)
 
     const getConstructor = useCallback(async (constructorId: string) => {
-        const baseURL = process.env.NODE_ENV === 'production' ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
-        await axios.get(`${baseURL}/api/constructor`, {
+        await axios.get("/api/constructor", {
             headers: {
                 constructorId
             }
@@ -38,11 +37,11 @@ export function Driver({ givenName, familyName, totalPoints, position, construct
             "bg-white h-16 text-black": position > 1
         })}>
             <div className="w-11 flex justify-center"><h2 className="font-bold">{position}</h2></div>
-            <div className={cn("h-full w-fit", {
-                "py-5": position === 1,
-                "py-3.5": position > 1
+            <div className={cn("h-full w-1 group-hover:w-1.5 transition-all", {
+                "py-5 group-hover:py-3": position === 1,
+                "py-3.5 group-hover:py-2": position > 1
             })}>
-                <div className={cn("h-full w-1", {
+                <div className={cn("h-full w-full", {
                     "bg-ferrari": constructorId === "ferrari",
                     "bg-mercedes": constructorId === "mercedes",
                     "bg-mclaren": constructorId === "mclaren",
