@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+	"plugins": ["@typescript-eslint"],
+	"extends": [
+		"next/core-web-vitals",
+		"@rocketseat/eslint-config/next",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended"
+	],
+	"rules": {
+		"prettier/prettier": ["error", {
+			"semi": false,
+			"trailingComma": "es5",
+			"singleQuote": false,
+			"tabWidth": 4,
+			"useTabs": true,
+			"bracketSameLine": true,
+			"arrowParens": "avoid",
+			"endOfLine": "crlf"
+		}],
+		"no-use-before-define": "error"
+	}
 }
