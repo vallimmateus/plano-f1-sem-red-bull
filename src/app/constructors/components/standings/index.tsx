@@ -4,7 +4,7 @@ import { StandingsList } from "./standings-list"
 
 export async function Constructors() {
 	const response = await fetch(
-		(process.env.NODE_ENV !== "production" && "http://localhost:3000") +
+		(process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "") +
 			"/api/standings-constructor-points",
 		{
 			next: {
@@ -19,7 +19,7 @@ export async function Constructors() {
 	handleUpdateChecker()
 
 	const responseDrivers = await fetch(
-		(process.env.NODE_ENV !== "production" && "http://localhost:3000") +
+		(process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "") +
 			"/api/drivers",
 		{
 			next: {

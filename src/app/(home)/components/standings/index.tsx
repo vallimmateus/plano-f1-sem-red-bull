@@ -4,7 +4,7 @@ import { StandingsList } from "./standings-list"
 
 export async function Standings() {
 	const response = await fetch(
-		(process.env.NODE_ENV !== "production" && "http://localhost:3000") +
+		(process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "") +
 			"/api/standings-driver-points",
 		{
 			next: {

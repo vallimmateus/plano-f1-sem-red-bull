@@ -361,14 +361,14 @@ export function transformHistoricalDataToConstructorStandings(
 
 export async function handleUpdateChecker() {
 	const responseLastRoundRegistered = await fetch(
-		(process.env.NODE_ENV !== "production" && "http://localhost:3000") +
+		(process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "") +
 			"/api/last-round-registered"
 	)
 	const dataLastRoundRegistered = await responseLastRoundRegistered.json()
 	const lastRoundRegistered = dataLastRoundRegistered.lastRound as number
 
 	const responseRaceResults = await fetch(
-		(process.env.NODE_ENV !== "production" && "http://localhost:3000") +
+		(process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "") +
 			"/api/race-results",
 		{
 			headers: {
@@ -386,8 +386,9 @@ export async function handleUpdateChecker() {
 			(_, index) => (index + lastRoundRegistered + 1).toString()
 		)
 		await fetch(
-			(process.env.NODE_ENV !== "production" && "http://localhost:3000") +
-				"/api/season-points",
+			(process.env.NODE_ENV !== "production"
+				? "http://localhost:3000"
+				: "") + "/api/season-points",
 			{
 				method: "PUT",
 				body: JSON.stringify({ roundsToUpdate }),
