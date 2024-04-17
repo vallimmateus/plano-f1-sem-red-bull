@@ -1,8 +1,9 @@
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { cn } from "@/lib/utils"
-import type { Metadata } from "next"
-import localFont from "next/font/local"
 import "./globals.css"
 
 const formulaOne = localFont({

@@ -1,11 +1,13 @@
 "use client"
 
+import { Search } from "lucide-react"
+import { useEffect, useState } from "react"
+
 import { Accordion } from "@/components/ui/accordion"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
-import { Search } from "lucide-react"
-import { useEffect, useState } from "react"
+
 import { DriverCard } from "../driver"
 
 export function StandingsList({ standings }: { standings: DriverPoints[] }) {

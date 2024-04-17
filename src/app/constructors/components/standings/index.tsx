@@ -1,4 +1,5 @@
 import { handleUpdateChecker } from "@/lib/utils"
+
 import { StandingsList } from "./standings-list"
 
 export async function Constructors() {

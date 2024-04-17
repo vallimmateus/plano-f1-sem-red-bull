@@ -1,4 +1,8 @@
 "use client"
+import { AccordionTrigger } from "@radix-ui/react-accordion"
+import Image from "next/image"
+import { useCallback } from "react"
+
 import { AccordionContent, AccordionItem } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -9,9 +13,6 @@ import {
 	TableRow,
 } from "@/components/ui/table"
 import { cn } from "@/lib/utils"
-import { AccordionTrigger } from "@radix-ui/react-accordion"
-import Image from "next/image"
-import { useCallback } from "react"
 
 export function DriverCard({
 	className,

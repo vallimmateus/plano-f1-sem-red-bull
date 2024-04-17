@@ -1,6 +1,7 @@
-import { prismaClient } from "@/lib/prisma"
 import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
+
+import { prismaClient } from "@/lib/prisma"
 
 export async function PUT(request: Request) {
 	try {

@@ -1,8 +1,5 @@
-// import { Input } from "@/components/ui/input"
-// import { Separator } from "@/components/ui/separator"
-// import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
-// import { Grid2X2, ListOrderedIcon, Search } from "lucide-react"
 import { handleUpdateChecker } from "@/lib/utils"
+
 import { StandingsList } from "./standings-list"
 
 export async function Standings() {

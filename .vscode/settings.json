@@ -1,5 +1,7 @@
 {
 	"editor.codeActionsOnSave": {
+		"source.fixAll": "always",
 		"source.fixAll.eslint": "always"
-	}
+	},
+	"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 }

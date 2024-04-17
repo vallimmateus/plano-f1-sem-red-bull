@@ -1,5 +1,5 @@
 {
-	"plugins": ["@typescript-eslint"],
+	"plugins": ["@typescript-eslint", "prettier"],
 	"extends": [
 		"next/core-web-vitals",
 		"@rocketseat/eslint-config/next",
@@ -17,6 +17,15 @@
 			"arrowParens": "avoid",
 			"endOfLine": "crlf"
 		}],
-		"no-use-before-define": "error"
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": "error",
+		"import/order": ["error", {
+			"groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+			"newlines-between": "always",
+			"alphabetize": {
+				"order": "asc",
+				"caseInsensitive": true
+			}
+		}]
 	}
 }

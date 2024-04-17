@@ -1,5 +1,7 @@
-import { TitlePage } from "@/components/title-page"
 import { Suspense } from "react"
+
+import { TitlePage } from "@/components/title-page"
+
 import { Loading } from "./components/constructor/loading"
 import { Constructors } from "./components/standings"
 
