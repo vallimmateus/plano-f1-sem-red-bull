@@ -138,7 +138,7 @@ export function transformHistoricalDataToStandings(
 				{ constructorId: "", points: 0, count: 0 }
 			).constructorId
 
-			const constructor = constructors.find(
+			const constructor: Constructor = constructors.find(
 				constructor =>
 					constructor.constructorId === constructorWithMaxPoints
 			)!
@@ -147,10 +147,10 @@ export function transformHistoricalDataToStandings(
 				...driver,
 				totalPoints: points,
 				position: 0,
-				constructorId: constructorWithMaxPoints,
+				constructorId: constructor.constructorId,
 				constructor,
 				circuits: allCircuits,
-			}
+			} as DriverPoints
 		})
 		.sort(
 			(a, b) =>
