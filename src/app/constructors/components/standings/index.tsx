@@ -5,8 +5,8 @@ import { StandingsList } from "./standings-list"
 export async function Constructors() {
 	const response = await fetch(
 		(process.env.NODE_ENV === "development"
-			? process.env.NEXT_PUBLIC_URL
-			: "https://" + process.env.NEXT_PUBLIC_URL) +
+			? "http://localhost:3000"
+			: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL) +
 			"/api/standings-constructor-points",
 		{
 			next: {
@@ -21,7 +21,9 @@ export async function Constructors() {
 	handleUpdateChecker()
 
 	const responseDrivers = await fetch(
-		process.env.NEXT_PUBLIC_URL + "/api/drivers",
+		(process.env.NODE_ENV === "development"
+			? "http://localhost:3000"
+			: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL) + "/api/drivers",
 		{
 			next: {
 				tags: ["get-all-current-drivers"],
