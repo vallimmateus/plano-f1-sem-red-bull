@@ -1,49 +1,42 @@
+"use client"
+import axios from "axios"
+import { useState, useCallback, useEffect } from "react"
+
 import { handleUpdateChecker } from "@/lib/utils"
 
 import { StandingsList } from "./standings-list"
 
-export async function Constructors() {
-	async function standingsConstructorsData() {
-		const response = await fetch(
-			(process.env.NODE_ENV === "development"
-				? "http://localhost:3000"
-				: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL) +
-				"/api/standings-constructor-points",
-			{
-				next: {
-					tags: ["get-standings-constructor-points"],
-				},
-			}
-		)
+export function Constructors() {
+	const [standingsConstructors, setStandingsConstructors] = useState<
+		ConstructorPoints[]
+	>([])
+	const [drivers, setDrivers] = useState<Driver[]>([])
 
-		const data = await response.json()
-		const standingsConstructors: ConstructorPoints[] = data.data
-		return standingsConstructors
-	}
+	const getStandingsConstructors = useCallback(async () => {
+		await axios
+			.get("/api/standings-constructor-points")
+			.then(res => {
+				const data: ConstructorPoints[] = res.data.data
+				setStandingsConstructors(data)
+			})
+			.catch(err => console.error(err))
+	}, [])
+	const getDrivers = useCallback(async () => {
+		await axios
+			.get("/api/drivers")
+			.then(res => {
+				const data: Driver[] = res.data.data
+				setDrivers(data)
+			})
+			.catch(err => console.error(err))
+	}, [])
 
-	async function driversData() {
-		const responseDrivers = await fetch(
-			(process.env.NODE_ENV === "development"
-				? "http://localhost:3000"
-				: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL) +
-				"/api/drivers",
-			{
-				next: {
-					tags: ["get-all-current-drivers"],
-				},
-			}
-		)
-		const dataDrivers = await responseDrivers.json()
-		const drivers: Driver[] = dataDrivers.data
-		return drivers
-	}
-
-	const standingsConstructors: ConstructorPoints[] =
-		await standingsConstructorsData()
+	useEffect(() => {
+		getStandingsConstructors()
+		getDrivers()
+	}, [getStandingsConstructors, getDrivers])
 
 	handleUpdateChecker()
-
-	const drivers: Driver[] = await driversData()
 
 	return (
 		<div className="flex w-full">
