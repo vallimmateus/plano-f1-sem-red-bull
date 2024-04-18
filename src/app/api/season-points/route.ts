@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache"
+import { revalidatePath, revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 
 import { prismaClient } from "@/lib/prisma"
@@ -125,7 +125,7 @@ export async function PUT(request: Request) {
 			}
 		}
 
-		revalidateTag("get-standings-driver-points")
+		revalidatePath("/")
 		revalidateTag("get-standings-constructor-points")
 		return NextResponse.json({ message: "success" }, { status: 200 })
 	} catch (err) {
